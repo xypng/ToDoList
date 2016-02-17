@@ -35,6 +35,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         todos.append(TodoModel(id: "2", image: "phone-selected", title: "2,打电话", date: dateFromString("2016-02-18")!))
         todos.append(TodoModel(id: "3", image: "shopping-cart-selected", title: "1,购物", date: dateFromString("2016-02-19")!))
         todos.append(TodoModel(id: "4", image: "travel-selected", title: "1,旅游", date: dateFromString("2016-02-20")!))
+        
+        self.navigationItem.leftBarButtonItem = editButtonItem()
     }
 
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +61,11 @@ class ViewController: UIViewController, UITableViewDataSource {
             todos.removeAtIndex(indexPath.row)
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.tableView.setEditing(editing, animated: animated)
     }
 }
 
