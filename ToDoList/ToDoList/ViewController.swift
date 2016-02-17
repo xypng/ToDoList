@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     internal func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             todos.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
 }
