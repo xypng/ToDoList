@@ -22,6 +22,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
+    var todo: TodoModel?
+    
     @IBAction func imageTapped(sender: UIButton) {
         childButton.selected = false
         phoneButton.selected = false
@@ -46,13 +48,38 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             img = "travel-selected"
         }
         let uuid = NSUUID().UUIDString
-        let model = TodoModel(id: uuid, image: img, title: titleTextField.text!, date: datePicker.date)
-        todos.append(model)
+        if todo == nil {
+            let model = TodoModel(id: uuid, image: img, title: titleTextField.text!, date: datePicker.date)
+            todos.append(model)
+        } else {
+            todo?.image = img
+            todo?.title = titleTextField.text!
+            todo?.date = datePicker.date
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if todo == nil {
+            childButton.selected = true
+            navigationController?.title = "新增"
+        } else {
+            navigationController?.title = "修改"
+            if todo?.image == "child-selected" {
+                childButton.selected = true
+            }
+            if todo?.image == "phone-selected" {
+                phoneButton.selected = true
+            }
+            if todo?.image == "shopping-cart-selected" {
+                shopingButton.selected = true
+            }
+            if todo?.image == "travel-selected" {
+                travelButton.selected = true
+            }
+            titleTextField.text = todo?.title
+            datePicker.date = (todo?.date)!
+        }
     }
 
     override func didReceiveMemoryWarning() {

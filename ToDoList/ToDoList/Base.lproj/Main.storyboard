@@ -45,6 +45,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="01W-pb-QoX" kind="push" identifier="changeTodoSegue" id="UKd-uO-dQv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -194,4 +197,7 @@
         <image name="travel" width="50" height="50"/>
         <image name="travel-selected" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UKd-uO-dQv"/>
+    </inferredMetricsTieBreakers>
 </document>
