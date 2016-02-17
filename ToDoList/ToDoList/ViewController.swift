@@ -10,8 +10,9 @@ import UIKit
 
 var todos: [TodoModel] = []
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         todos.append(TodoModel(id: "1", image: "child-selected", title: "1,在家带孩子", date: dateFromString("2016-02-17")!))
@@ -25,6 +26,14 @@ class ViewController: UIViewController {
         df.dateFormat = "yyyy-MM-dd"
         let dt = df.dateFromString(string)
         return dt
+    }
+
+    internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20;
+    }
+    internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cellId")! as UITableViewCell
+        return cell
     }
 }
 
