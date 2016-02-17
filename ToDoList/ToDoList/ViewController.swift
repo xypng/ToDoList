@@ -81,5 +81,14 @@ class ViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return editing
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let model = todos.removeAtIndex(sourceIndexPath.row)
+        todos.insert(model, atIndex: destinationIndexPath.row)
+    }
 }
 
