@@ -13,6 +13,7 @@
 		CE4038E61C749C4300811F8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4038E51C749C4300811F8E /* Assets.xcassets */; };
 		CE4038E91C749C4300811F8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4038E71C749C4300811F8E /* LaunchScreen.storyboard */; };
 		CE4038F11C749C9900811F8E /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4038F01C749C9900811F8E /* TodoModel.swift */; };
+		CE4038F31C74BEA600811F8E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4038F21C74BEA600811F8E /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CE4038E81C749C4300811F8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE4038EA1C749C4300811F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4038F01C749C9900811F8E /* TodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		CE4038F21C74BEA600811F8E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				CE4038DE1C749C4300811F8E /* AppDelegate.swift */,
 				CE4038E01C749C4300811F8E /* ViewController.swift */,
+				CE4038F21C74BEA600811F8E /* DetailViewController.swift */,
 				CE4038E21C749C4300811F8E /* Main.storyboard */,
 				CE4038E51C749C4300811F8E /* Assets.xcassets */,
 				CE4038E71C749C4300811F8E /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 				CE4038F11C749C9900811F8E /* TodoModel.swift in Sources */,
 				CE4038E11C749C4300811F8E /* ViewController.swift in Sources */,
 				CE4038DF1C749C4300811F8E /* AppDelegate.swift in Sources */,
+				CE4038F31C74BEA600811F8E /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +293,7 @@
 				CE4038EF1C749C4300811F8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

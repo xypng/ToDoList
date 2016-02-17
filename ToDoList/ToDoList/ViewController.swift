@@ -67,5 +67,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.setEditing(editing, animated: animated)
         self.tableView.setEditing(editing, animated: animated)
     }
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+        tableView.reloadData()
+    }
 }
 
