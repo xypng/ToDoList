@@ -9,6 +9,7 @@
 import UIKit
 
 var todos: [TodoModel] = []
+var fieldtodos: [TodoModel] = []
 //字符串得到NSDate
 func dateFromString(string: String) -> NSDate? {
     let df = NSDateFormatter()
@@ -26,7 +27,7 @@ func stringFromDate(date: NSDate) -> String {
     return dateformatter.stringFromDate(date)
 }
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -40,12 +41,21 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     internal func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count;
+        if tableView == searchDisplayController?.searchResultsTableView {
+            return fieldtodos.count
+        } else {
+            return todos.count;
+        }
     }
     
     internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cellId")! as UITableViewCell
-        let todo = todos[indexPath.row]
+        var todo: TodoModel
+        if tableView == searchDisplayController?.searchResultsTableView {
+            todo = fieldtodos[indexPath.row] as TodoModel
+        } else {
+            todo = todos[indexPath.row] as TodoModel
+        }
         let image = cell.viewWithTag(101) as! UIImageView
         let title = cell.viewWithTag(102) as! UILabel
         let date = cell.viewWithTag(103) as! UILabel
@@ -90,5 +100,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         let model = todos.removeAtIndex(sourceIndexPath.row)
         todos.insert(model, atIndex: destinationIndexPath.row)
     }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+        fieldtodos = todos.filter(){$0.title.rangeOfString(searchString!) != nil}
+        return true
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
+    
 }
 
